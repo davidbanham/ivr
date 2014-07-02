@@ -1,0 +1,7 @@
+Speak Please wait.
+Wait(length=length)
+if voicemail
+  Speak Sorry, but the department you are trying to reach is not available. Please leave a message after the tone.
+  Record(action="#{appUrl}/recording/#{voicemail}")
+  Speak Sorry, but I didn't hear anything. Goodbye.
+  Hangup

@@ -1,0 +1,7 @@
+if members === 0
+  Speak You are the first person to enter the conference.
+else if members === 1
+  Speak There is one person already in the conference.
+else
+  Speak There are #{members} people already in the conference.
+Conference(startConferenceOnEnter="#{admin}", waitSound="#{appUrl}/play?url=#{encodeURIComponent('http://creative.pinion.gg/creative/pinion/holdmusic/ghostbusters.mp3')}", enterSound="#{appUrl}/speakText?text=#{encodeURIComponent('User entered')}", exitSound="#{appUrl}/speakText?text=#{encodeURIComponent('User exited')}") #{id}

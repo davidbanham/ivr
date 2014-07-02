@@ -1,0 +1,21 @@
+if typeof confirmText !== 'undefined'
+  Dial(confirmSound="#{appUrl}/speakText?text=#{encodeURIComponent(confirmText+' Press 1 to accept')}", confirmKey="1", timeout="45", callbackUrl="#{appUrl}/hangup")
+    each person in members
+      each target in person.numbers
+        if target.type === 'number'
+          Number #{target.value}
+        if target.type === 'sip'
+          User #{target.value}
+else
+  Dial(timeout="45", callbackUrl="#{appUrl}/hangup")
+    each person in members
+      each target in person.numbers
+        if target.type === 'number'
+          Number #{target.value}
+        if target.type === 'sip'
+          User #{target.value}
+if typeof voicemail !== 'undefined'
+  Speak Sorry, but the department you are trying to reach is not available. Please leave a message after the tone.
+  Record(action="#{appUrl}/recording/#{encodeURIComponent(voicemail)}", callbackUrl="#{appUrl}/recording/#{encodeURIComponent(voicemail)}")
+  Speak Sorry, but I didn't hear anything. Goodbye.
+  Hangup
