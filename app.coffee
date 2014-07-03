@@ -111,4 +111,4 @@ require('./routes/util.coffee')(app)
 require('./routes/voicemail.coffee')(app)
 
 app.listen 3000 or process.env.PORT
-console.log "Express server listening on port %d", app.address().port
+console.log "Express server listening on port %d", 3000 or process.env.PORT
