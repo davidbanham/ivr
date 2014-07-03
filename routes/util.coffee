@@ -1,3 +1,4 @@
+ivr_conf = require '../conf/ivr.coffee'
 module.exports = (app) ->
 
   app.post "/fallback", (req, res) ->
@@ -14,7 +15,7 @@ module.exports = (app) ->
     #  return res.send 500 if err?
     #  if person?
     #    return res.render "dial", members: [person], voicemail: person, confirmText: "Direct call."
-    res.render "digits", path: "/ivr/", script: ivrScript, numDigits: 1
+    res.render "digits", path: "/ivr/", script: ivr_conf.routes.default.params.script, numDigits: 1
 
   app.post "/speakText", (req,res) ->
     res.render "speakText", text: req.query.text
