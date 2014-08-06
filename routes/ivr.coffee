@@ -15,12 +15,12 @@ module.exports = (app) ->
   app.post "/ivr", (req,res) ->
     digits = parseInt req.body.Digits
     switch digits
-      when 1, 2 then render conf.ivr.routes.sales
-      when 3 then render conf.ivr.routes.support
-      when 4 then render conf.ivr.routes.accounts
-      when 7 then render conf.ivr.routes.extension
-      when 9 then render conf.ivr.routes.conferenceRooms
-      else res.render conf.ivr.routes.default
+      when 1, 2 then render req, res, conf.ivr.routes.sales
+      when 3 then render req, res, conf.ivr.routes.support
+      when 4 then render req, res, conf.ivr.routes.accounts
+      when 7 then render req, res, conf.ivr.routes.extension
+      when 9 then render req, res, conf.ivr.routes.conferenceRooms
+      else res.render req, res, conf.ivr.routes.default
 
   app.post "/groups/:group", (req,res) ->
     group = conf.groups[req.params.group]
