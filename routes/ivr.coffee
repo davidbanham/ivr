@@ -28,7 +28,7 @@ module.exports = (app) ->
     for member in group.members
       members.push conf.people[member]
     members = tzFilter members, conf.times[group.time] unless req.query.unfiltered?
-    res.render "dial", members: members, confirmText: group.text
+    res.render "dial", members: members, confirmText: group.text, voicemail: group.voicemail
 
   checkDirectDial = (body, cb) ->
     for person, attr of conf.people
