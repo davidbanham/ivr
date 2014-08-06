@@ -37,4 +37,4 @@ module.exports = (app) ->
         return cb null, person if attr.direct == body.To
 
   render = (req, res, target) ->
-    res.render target.template, target.options
+    res.render target.template, target.params
